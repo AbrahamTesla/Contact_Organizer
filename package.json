@@ -1,0 +1,13 @@
+{
+   "name": "contact-keeper",
+   "version": "1.0.0",
+   "description": "contact manager application",
+   "main": "server.js",
+   "scripts": {
+      "start": "node server.js",
+      "server": "nodemon server.js"
+   },
+   "keywords": [],
+   "author": "Vincent Manlangit",
+   "license": "ISC"
+}
