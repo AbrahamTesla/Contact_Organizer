@@ -9,5 +9,16 @@
    },
    "keywords": [],
    "author": "Vincent Manlangit",
-   "license": "ISC"
+   "license": "ISC",
+   "dependencies": {
+      "bcryptjs": "^2.4.3",
+      "concurrent": "^0.3.2",
+      "config": "^3.3.6",
+      "dotenv": "^10.0.0",
+      "express": "^4.17.2",
+      "express-validator": "^6.14.0",
+      "jsonwebtoken": "^8.5.1",
+      "mongoose": "^6.1.5",
+      "nodemon": "^2.0.15"
+   }
 }
