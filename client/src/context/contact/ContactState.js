@@ -45,6 +45,8 @@ const ContactState = (props) => {
             type: 'professional',
          },
       ],
+      //If a specific contact item is edited, it will be put inside the 'current' state.
+      current: null,
    };
    //Next pull out the state and dispatch using 'useReducer' hook
 
@@ -61,9 +63,13 @@ const ContactState = (props) => {
       dispatch({ type: DELETE_CONTACT, payload: id });
    };
    //Set Current Contact
-
+   const setCurrent = (contact) => {
+      dispatch({ type: SET_CURRENT, payload: contact });
+   };
    //Clear Current Contact
-
+   const clearCurrent = () => {
+      dispatch({ type: CLEAR_CURRENT });
+   };
    //Update Contact
 
    //Filter Contacts
@@ -75,8 +81,11 @@ const ContactState = (props) => {
          //Have access to 'state' due to useReducer hook
          value={{
             contacts: state.contacts,
+            current: state.current,
             addContact,
             deleteContact,
+            setCurrent,
+            clearCurrent,
          }}
       >
          {props.children}

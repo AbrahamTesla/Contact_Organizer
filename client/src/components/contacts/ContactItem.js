@@ -5,16 +5,17 @@ import ContactContext from '../../context/contact/contactContext';
 const ContactItem = ({ contact }) => {
    //Initialize 'ContactContext' to add functions of deleteContact
    const contactContext = useContext(ContactContext);
-   // pulling out the deleteContact action from contactcontext
-   const { deleteContact } = contactContext;
 
+   // pulling out the deleteContact action from contactcontext
+   const { deleteContact, setCurrent, clearCurrent } = contactContext;
+
+   //Destructuring to take the properties we want out of the 'contact' prop
    const { id, name, phone, email, type } = contact;
 
    const onDelete = () => {
       deleteContact(id);
+      clearCurrent();
    };
-
-   //Destructuring to take the properties we want out of the 'contact' prop
 
    return (
       <div className='card bg-light'>
@@ -47,7 +48,12 @@ const ContactItem = ({ contact }) => {
             )}
          </ul>
          <p>
-            <button className='btn btn-dark btn-sm'>Edit</button>
+            <button
+               className='btn btn-dark btn-sm'
+               onClick={() => setCurrent(contact)}
+            >
+               Edit
+            </button>
             <button className='btn btn-danger btn-sm' onClick={onDelete}>
                Delete
             </button>

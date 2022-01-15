@@ -1,1 +1,4 @@
-
+{
+   "mongoURI": "mongodb+srv://vimanlangit:Cnbc2070@contactkeeper.meg0a.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+   "jwtSecret": "secret"
+}

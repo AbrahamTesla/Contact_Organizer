@@ -2,7 +2,7 @@ const express = require('express');
 const connectDB = require('./config/db');
 
 const app = express();
-
+// const wss = new SocketServer({ server });
 //Connect Database
 connectDB();
 
