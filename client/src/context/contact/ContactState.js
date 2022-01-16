@@ -47,6 +47,9 @@ const ContactState = (props) => {
       ],
       //If a specific contact item is edited, it will be put inside the 'current' state.
       current: null,
+
+      //Filtered state for doing a search which defaults to null
+      filtered: null,
    };
    //Next pull out the state and dispatch using 'useReducer' hook
 
@@ -71,21 +74,33 @@ const ContactState = (props) => {
       dispatch({ type: CLEAR_CURRENT });
    };
    //Update Contact
+   const updateContact = (contact) => {
+      dispatch({ type: UPDATE_CONTACT, payload: contact });
+   };
 
-   //Filter Contacts
+   //Filter Contacts which takes a parameter of text
+   const filterContacts = (text) => {
+      dispatch({ type: FILTER_CONTACTS, payload: text });
+   };
 
    //Clear Filter
-
+   const clearFilter = () => {
+      dispatch({ type: CLEAR_FILTER });
+   };
    return (
       <ContactContext.Provider
          //Have access to 'state' due to useReducer hook
          value={{
             contacts: state.contacts,
             current: state.current,
+            filtered: state.filtered,
             addContact,
             deleteContact,
             setCurrent,
             clearCurrent,
+            updateContact,
+            filterContacts,
+            clearFilter,
          }}
       >
          {props.children}

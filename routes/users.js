@@ -8,6 +8,7 @@ const { genSalt } = require('bcryptjs');
 const bcrypt = require('bcryptjs/dist/bcrypt');
 const jwt = require('jsonwebtoken');
 const config = require('config');
+// require('dotenv').config();
 // @route   POST api/user
 //@desc     Register a user
 //@access   Public
@@ -63,6 +64,7 @@ router.post(
          //Returning the token
          jwt.sign(
             payload,
+            //'jwtSecret
             config.get('jwtSecret'),
             {
                expiresIn: 360000,

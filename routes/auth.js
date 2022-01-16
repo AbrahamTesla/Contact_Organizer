@@ -7,6 +7,7 @@ const config = require('config');
 const auth = require('../middleware/auth');
 // const { check, validationResult } = require('express-validator/check');
 const { check, validationResult } = require('express-validator');
+require('dotenv').config();
 
 //@route   GET api/auth
 //@desc    GET logged in user
@@ -65,6 +66,7 @@ router.post(
 
          jwt.sign(
             payload,
+            //'jwtSecret
             config.get('jwtSecret'),
             {
                expiresIn: 360000,
