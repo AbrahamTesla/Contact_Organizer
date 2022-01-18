@@ -10,6 +10,9 @@ const Contacts = () => {
    //Destructuring.  To pull out contacts & filtered out of contactContext
    const { contacts, filtered } = contactContext;
 
+   //This is use to get rid of the warning created by CSSTransition
+   const nodeRef = React.useRef(null);
+
    //If there's no added contacts, please add one
    if (contacts.length === 0) {
       return <h4>Please Add Contacts</h4>;
@@ -26,6 +29,7 @@ const Contacts = () => {
                        key={contact.id}
                        timeout={500}
                        classNames='item'
+                       nodeRef={nodeRef}
                     >
                        <ContactItem contact={contact} />
                     </CSSTransition>
@@ -35,6 +39,7 @@ const Contacts = () => {
                        key={contact.id}
                        timeout={500}
                        classNames='item'
+                       nodeRef={nodeRef}
                     >
                        <ContactItem contact={contact} />
                     </CSSTransition>

@@ -1,7 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import AlertContext from '../../context/alert/alertContext';
+import AuthContext from '../../context/auth/authContext';
 
-const Register = () => {
+const Register = props => {
    const [user, setUser] = useState({
       name: '',
       email: '',
@@ -11,9 +12,24 @@ const Register = () => {
 
    //Initializing alertContext to bring the setAlert
    const alertContext = useContext(AlertContext);
+   const authContext = useContext(AuthContext);
 
    const { setAlert } = alertContext;
+   const { register, error, clearErrors, isAuthenticated } = authContext;
 
+   //Using useEffect for error validation
+   useEffect(() => {
+      //We are going to set isAuthenticated to true and redirect to homepage '/'
+      if (isAuthenticated) {
+         props.history.push('/');
+      }
+
+      if (error === 'User already exist') {
+         setAlert(error, 'danger');
+         clearErrors();
+      }
+      //eslint-disable-next-line
+   }, [error, isAuthenticated, props.history]);
    //Destructuring the properties from user
    const { name, email, password, password2 } = user;
 
@@ -33,7 +49,12 @@ const Register = () => {
       } else if (password !== password2) {
          setAlert('Passwords does not match', 'danger');
       } else {
-         console.log('Register User');
+         //Register function that takes a parameter 'formData' therefore
+         register({
+            name,
+            email,
+            password,
+         });
       }
    };
 

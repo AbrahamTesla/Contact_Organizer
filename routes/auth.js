@@ -7,7 +7,7 @@ const config = require('config');
 const auth = require('../middleware/auth');
 // const { check, validationResult } = require('express-validator/check');
 const { check, validationResult } = require('express-validator');
-require('dotenv').config();
+// require('dotenv').config();
 
 //@route   GET api/auth
 //@desc    GET logged in user
@@ -30,7 +30,7 @@ router.get('/', auth, async (req, res) => {
 router.post(
    '/',
    [
-      check('email', 'Please Include emai').isEmail(),
+      check('email', 'Please Include email').isEmail(),
       check('password', 'Please Provide valid credentials').exists(),
    ],
    async (req, res) => {

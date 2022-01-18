@@ -8,10 +8,16 @@ import AuthState from './context/auth/AuthState';
 import AlertState from './context/alert/AlertState';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
+import setAuthToken from './utils/setAuthToken';
 import './App.css';
 import Alerts from './components/layout/Alerts';
 
 /* Need to install react-router-dom@5 due to 'Switch' Import*/
+
+//Calling this to load the token if available in localStorage
+if (localStorage.token) {
+   setAuthToken(localStorage.token);
+}
 const App = () => {
    return (
       <AuthState>
