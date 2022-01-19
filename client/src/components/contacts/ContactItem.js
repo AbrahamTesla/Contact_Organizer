@@ -10,10 +10,10 @@ const ContactItem = ({ contact }) => {
    const { deleteContact, setCurrent, clearCurrent } = contactContext;
 
    //Destructuring to take the properties we want out of the 'contact' prop
-   const { id, name, phone, email, type } = contact;
+   const { _id, name, phone, email, type } = contact;
 
    const onDelete = () => {
-      deleteContact(id);
+      deleteContact(_id);
       clearCurrent();
    };
 

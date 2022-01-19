@@ -11,6 +11,7 @@ import Login from './components/auth/Login';
 import setAuthToken from './utils/setAuthToken';
 import './App.css';
 import Alerts from './components/layout/Alerts';
+import PrivateRoute from './components/routing/PrivateRoute';
 
 /* Need to install react-router-dom@5 due to 'Switch' Import*/
 
@@ -29,7 +30,7 @@ const App = () => {
                      <div className='container'>
                         <Alerts />
                         <Switch>
-                           <Route exact path='/' component={Home} />
+                           <PrivateRoute exact path='/' component={Home} />
                            <Route exact path='/about' component={About} />
                            <Route exact path='/register' component={Register} />
                            <Route exact path='/login' component={Login} />
