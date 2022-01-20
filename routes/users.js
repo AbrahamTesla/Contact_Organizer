@@ -6,8 +6,8 @@ const { findOne } = require('../models/User');
 const { genSalt } = require('bcryptjs');
 const bcrypt = require('bcryptjs/dist/bcrypt');
 const jwt = require('jsonwebtoken');
-const config = require('config');
-// require('dotenv').config();
+// const config = require('config');
+require('dotenv').config();
 
 // @route   POST api/user
 //@desc     Register a user
@@ -65,7 +65,8 @@ router.post(
          jwt.sign(
             payload,
             //'jwtSecret
-            config.get('jwtSecret'),
+            // config.get('jwtSecret'),
+            process.env.jwtSecret,
             {
                expiresIn: 360000,
             },

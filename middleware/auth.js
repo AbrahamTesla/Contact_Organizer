@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
-const config = require('config');
-// require('dotenv').config();
+// const config = require('config');
+require('dotenv').config();
 
 //Middleware function for protective route (private)
 module.exports = function (req, res, next) {
@@ -17,7 +17,7 @@ module.exports = function (req, res, next) {
 
    try {
       //verifying token , replacing this code config.get('jwtSecret')
-      const decoded = jwt.verify(token, config.get('jwtSecret'));
+      const decoded = jwt.verify(token, process.env.jwtSecret);
 
       //Set the user within that payload to req.user to have access inside the route
       req.user = decoded.user;
