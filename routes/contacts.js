@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const auth = require('../middleware/auth');
-// const { check, validationResult } = require('express-validator/check');
 const { check, validationResult } = require('express-validator');
 const Contact = require('../models/Contact');
 const User = require('../models/User');
 const { exists } = require('../models/Contact');
+// require('dotenv').config();
 
 // @route   GET api/contacts
 //@desc     Get all users contacts

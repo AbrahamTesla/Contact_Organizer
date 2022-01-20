@@ -17,14 +17,14 @@ export default (state, action) => {
          return {
             ...state,
             contacts: action.payload,
-            loading: false,
+            // loading: false,
          };
       case ADD_CONTACT:
          return {
             ...state,
             //For contacts : action.payload is first so that the most recent addition will go at the top on front end. It's like sorting the most recent addition on top first
             contacts: [action.payload, ...state.contacts],
-            loading: false,
+            // loading: false,
          };
       case UPDATE_CONTACT:
          return {
@@ -33,7 +33,7 @@ export default (state, action) => {
             contacts: state.contacts.map(contact =>
                contact._id === action.payload._id ? action.payload : contact
             ),
-            loading: false,
+            // loading: false,
          };
       case DELETE_CONTACT:
          //Filter fx that filters out the current contact id that was pass-in the payload(id) from contactState.js
@@ -42,7 +42,7 @@ export default (state, action) => {
             contacts: state.contacts.filter(
                contact => contact._id !== action.payload
             ),
-            loading: false,
+            // loading: false,
          };
       case CLEAR_CONTACTS:
          return {

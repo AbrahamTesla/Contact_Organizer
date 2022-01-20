@@ -14,7 +14,6 @@ import {
    CONTACT_ERROR,
    GET_CONTACTS,
    CLEAR_CONTACTS,
-   CLEAR_ERRORS,
 } from '../types';
 
 //Create initial state
@@ -58,7 +57,7 @@ const ContactState = props => {
 
       //Error state which used for sending message of response error
       error: null,
-      loading: true,
+      // loading: true,
    };
    //Next pull out the state and dispatch using 'useReducer' hook
 
@@ -83,7 +82,7 @@ const ContactState = props => {
    //Add Contact - using uuid
    //Making a request therefore 'async'
    const addContact = async contact => {
-      // contact.id = uuidv4();
+      // contact.id = uuidv4() used during the front-end set up only;
       const config = {
          headers: {
             'Content-Type': 'application/json',
@@ -91,7 +90,7 @@ const ContactState = props => {
       };
       //SetAuthtoken is set globally, thus no need to send token here which is store in localStorage
       try {
-         const res = await axios.post('/api/contacts', config, contact);
+         const res = await axios.post('/api/contacts', contact, config);
 
          //Payload - sending the response coming from the server.  Thus, res.data
          dispatch({ type: ADD_CONTACT, payload: res.data });

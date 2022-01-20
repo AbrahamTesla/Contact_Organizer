@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
-// const { check, validationResult } = require('express-validator/check');
 const { check, validationResult } = require('express-validator');
 const { findOne } = require('../models/User');
 const { genSalt } = require('bcryptjs');
@@ -9,6 +8,7 @@ const bcrypt = require('bcryptjs/dist/bcrypt');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 // require('dotenv').config();
+
 // @route   POST api/user
 //@desc     Register a user
 //@access   Public

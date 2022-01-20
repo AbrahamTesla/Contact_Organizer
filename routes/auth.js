@@ -1,11 +1,10 @@
-const express = require('express');
+const express = require('express'); //
 const router = express.Router();
 const User = require('../models/User');
 const bcrypt = require('bcryptjs/dist/bcrypt');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const auth = require('../middleware/auth');
-// const { check, validationResult } = require('express-validator/check');
 const { check, validationResult } = require('express-validator');
 // require('dotenv').config();
 
@@ -68,6 +67,7 @@ router.post(
             payload,
             //'jwtSecret
             config.get('jwtSecret'),
+            // process.env.JWTsecret,
             {
                expiresIn: 360000,
             },
