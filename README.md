@@ -1,7 +1,7 @@
 # Contact_Organizer
 Manage Contacts with User authentication; 
 Technology used: ReactJs, NodeExpress, Email validator, config, Jwt token, bcryptjs, MongoDb, Font Awesome,.
-Function like a phone book.  Allow user to manage (add, update, delete) contacts.
+Function like a phone book.  Allow user to manage contacts (add, update, delete, filter search using contact name and email ). Password is encrypted using bcyptjs and jwt token.
 Link:  https://contactorganizermern.herokuapp.com/login
 
 Register First!
